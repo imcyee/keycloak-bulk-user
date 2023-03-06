@@ -21,10 +21,9 @@ Features:
 | Query users by ids | {realm}/bulkuser?ids=ba7dba10-9aa9-4c1a-bcc8-f601852bea5f&ids=ba7dba10-9aa9-4c1a-bcc8-f601852bea5f | Can be modified 
 
  
-
-Not supported yet
-------------------------
-- Cache layer (Query part of the users from cache, and others from database)
+Troubleshoot
+-----------------
+Check provider info under `realm-restapi-extension`, is there `bulkuser`, if not there, it might be caused by a missing step in get started instruction.
 
 
 Notes
@@ -32,4 +31,10 @@ Notes
 
 - If there is any missing information, you are welcome to dive into the code. It is really a simple code. Free free to submit pull request too.
 - Main code is at: `BulkuserResourceProviderFactory.java`
+
+
+Not supported yet
+------------------------
+- Cache layer (Query part of the users from cache, and others from database)
+
 
