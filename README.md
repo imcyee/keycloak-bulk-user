@@ -10,7 +10,7 @@ Get started
 -----------------------
 Run `mvn package` to generate java package.
 
-Copy jar files inside `target` to your provider folder.
+Copy `.jar` files inside `target` to your provider folder.
 
 
 Features:
@@ -26,4 +26,10 @@ Cache layer (Query part of the users from cache, and others from database)
 
 If there is any missing information, you are welcome to dive into the code. It is really simple to read and modify too.
 
+
+Main code is at: `BulkuserResourceProviderFactory.java`
+
+
 * not resource role if you need resource role you have to modify the code
+
+

@@ -81,44 +81,45 @@ public class BulkuserResourceProvider implements RealmResourceProvider {
     }
  
 
+    /**
+     * the actual get request 
+     * 
+     */
     // example: http://localhost:8080/realms/dev/bulkuser?ids=ba7dba10-9aa9-4c1a-bcc8-f601852bea5f&ids=ba7dba10-9aa9-4c1a-bcc8-f601852bea5f
     @GET 
     @NoCache
     @Consumes(MediaType.APPLICATION_JSON)
     public Stream<UserRepresentation> get(
-    		// For post
-//        BulkuserBodyRepresentation idsFromBody,
+    	// For post
+        // BulkuserBodyRepresentation idsFromBody,
         @QueryParam("ids") final List<String> ids
     ) {
-//        System.out.println(idsFromBody.ids.size());
+        // System.out.println(idsFromBody.ids.size());
+
+        // authorization
     	isAdmin(session);
     	
+        // get realm
     	RealmModel realm = session.getContext().getRealm();
-    	 
-        EntityManager em = session.getProvider(JpaConnectionProvider.class).getEntityManager();
 
+        // query users 
+        EntityManager em = session.getProvider(JpaConnectionProvider.class).getEntityManager();
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<UserEntity> queryBuilder = builder.createQuery(UserEntity.class);
         Root<UserEntity> root = queryBuilder.from(UserEntity.class);
-
         List<Predicate> predicates = new ArrayList<>();
         List<Predicate> attributePredicates = new ArrayList<>();
-  
         predicates.add(root.get("id").in(ids));
         predicates.add(builder.equal(root.get("realmId"), realm.getId()));
-        
         queryBuilder.where(predicates.toArray(new Predicate[predicates.size()]));
-
         TypedQuery<UserEntity> query = em.createQuery(queryBuilder);
         UserProvider users = session.users();
         Integer firstResult = 0;
         Integer maxResults = 10;
-
         Stream<UserModel> userModels = closing(
             paginateQuery(query, firstResult, maxResults).getResultStream())
                 .map(userEntity -> users.getUserById(realm, userEntity.getId()))
                 .filter(Objects::nonNull);
- 
         return userModels.filter(user -> true)
                 .map(
                     user -> {
