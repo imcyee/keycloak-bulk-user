@@ -16,6 +16,8 @@ Get started
 
 Features:
 ------------------------
+API format: {url}/realms/{realm}/bulkuser?ids={user_uuid}&ids={user_uuid}
+
 | features | api | remarks |
 |----------|-----|---------|
 | Query users by ids | http://localhost:8080/realms/dev/bulkuser?ids=ba7dba10-9aa9-4c1a-bcc8-f601852bea5f&ids=ba7dba10-9aa9-4c1a-bcc8-f601852bea5f | Can be modified 
