@@ -1,35 +1,38 @@
 
 Requirement:
 -----------------------
-Maven
-
-Make sure the targeted `client` has `admin` role* permission.
-Also has mapped role to your access token
+- Maven
+- targeted `client` has role named `admin` (not resource role or modify `hasRole(AdminRoles.ADMIN);`)
+- access token has the role admin mapped
+  
 
 Get started
 -----------------------
-Run `mvn package` to generate java package.
+Generate java package,
 
-Copy `.jar` files inside `target` to your provider folder.
+Run `mvn package`
+
+then,
+
+Copy `.jar` files inside `target` to your `provider` folder.
 
 
 Features:
 ------------------------
-Query users by ids
-{realm}/bulkuser?ids=ba7dba10-9aa9-4c1a-bcc8-f601852bea5f&ids=ba7dba10-9aa9-4c1a-bcc8-f601852bea5f 
+| features | api | remarks |
+|----------|-----|---------|
+| Query users by ids | {realm}/bulkuser?ids=ba7dba10-9aa9-4c1a-bcc8-f601852bea5f&ids=ba7dba10-9aa9-4c1a-bcc8-f601852bea5f | Can be modified 
 
+ 
 
 Not supported yet
 ------------------------
-Cache layer (Query part of the users from cache, and others from database)
+- Cache layer (Query part of the users from cache, and others from database)
 
 
-If there is any missing information, you are welcome to dive into the code. It is really simple to read and modify too.
+Notes
+------------
 
-
-Main code is at: `BulkuserResourceProviderFactory.java`
-
-
-* not resource role if you need resource role you have to modify the code
-
+- If there is any missing information, you are welcome to dive into the code. It is really a simple code. Free free to submit pull request too.
+- Main code is at: `BulkuserResourceProviderFactory.java`
 
