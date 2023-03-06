@@ -8,14 +8,11 @@ Requirement:
 
 Get started
 -----------------------
-Generate java package,
+- Run `mvn package`to generate java package,
 
-Run `mvn package`
+- Copy `.jar` files inside `target` to your `provider` folder.
 
-then,
-
-Copy `.jar` files inside `target` to your `provider` folder.
-
+- Run `/bin/kc.sh build` 
 
 Features:
 ------------------------
