@@ -2,7 +2,7 @@
 Requirement:
 -----------------------
 - Maven
-- targeted `client` has role named `admin` (not resource role or modify `hasRole(AdminRoles.ADMIN);`)
+- add role named `admin` to targeted `client` has  (not resource role or modify `hasRole(AdminRoles.ADMIN);`)
 - access token has the role admin mapped
   
 
