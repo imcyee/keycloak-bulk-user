@@ -56,9 +56,9 @@ public class BulkuserResourceProvider implements RealmResourceProvider {
         return this;
     }
 
-    public  void isAuthenticated() { 
-        isAuthenticated(auth);
-    }
+    // public  void isAuthenticated() { 
+    //     isAuthenticated(auth);
+    // }
 
     public  void isAuthenticated(AuthenticationManager.AuthResult authResult) {
         if (authResult == null) {
@@ -67,7 +67,7 @@ public class BulkuserResourceProvider implements RealmResourceProvider {
     }
     
     public  void hasRole(String role) {
-        isAuthenticated(auth);
+        // isAuthenticated(auth);
         if (auth.getToken().getRealmAccess() == null
         		|| !auth.getToken().getRealmAccess().isUserInRole(role)) {
             throw new ForbiddenException("You do not have the required credentials for this action");
@@ -76,7 +76,7 @@ public class BulkuserResourceProvider implements RealmResourceProvider {
 
 
     public void isAdmin(KeycloakSession session) {
-    	isAuthenticated();
+    	isAuthenticated(auth);
     	hasRole(AdminRoles.ADMIN);
     }
  

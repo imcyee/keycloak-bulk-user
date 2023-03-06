@@ -3,7 +3,9 @@ Requirement:
 -----------------------
 - Maven
 - add role named `admin` to targeted `client` has  (not resource role or modify `hasRole(AdminRoles.ADMIN);`)
+([keycloak console] select your client -> service account -> add admin)
 - access token has the role admin mapped
+(add client scope -> User Realm Role -> token claim name = realm_access.roles -> add to access token)
   
 
 Get started
@@ -13,6 +15,7 @@ Get started
 - Copy `.jar` files inside `target` to your `provider` folder.
 
 - Run `/bin/kc.sh build` 
+
 
 Features:
 ------------------------
