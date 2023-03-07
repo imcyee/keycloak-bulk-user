@@ -2,9 +2,9 @@
 Requirement:
 -----------------------
 - Maven
-- add role named `admin` to targeted `client` has  (not resource role or modify `hasRole(AdminRoles.ADMIN);`)
+- add role named `admin` to targeted `client`
 ([keycloak console] select your client -> service account -> add `admin`)
-- access token has the role admin mapped
+- access token has `realm role` mapped to access token
 ([keycloak console] add client scope -> User Realm Role -> token claim name = realm_access.roles -> add to access token)
   
 
